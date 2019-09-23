@@ -1,0 +1,7 @@
+D:\DUT\C# DUT\Lab_DUT_Yevtaiyev\Lab_5\bin\Debug\Lab_5.exe.config
+D:\DUT\C# DUT\Lab_DUT_Yevtaiyev\Lab_5\bin\Debug\Lab_5.exe
+D:\DUT\C# DUT\Lab_DUT_Yevtaiyev\Lab_5\bin\Debug\Lab_5.pdb
+D:\DUT\C# DUT\Lab_DUT_Yevtaiyev\Lab_5\obj\Debug\Lab_5.csprojAssemblyReference.cache
+D:\DUT\C# DUT\Lab_DUT_Yevtaiyev\Lab_5\obj\Debug\Lab_5.csproj.CoreCompileInputs.cache
+D:\DUT\C# DUT\Lab_DUT_Yevtaiyev\Lab_5\obj\Debug\Lab_5.exe
+D:\DUT\C# DUT\Lab_DUT_Yevtaiyev\Lab_5\obj\Debug\Lab_5.pdb

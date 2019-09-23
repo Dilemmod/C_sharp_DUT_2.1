@@ -1,0 +1,14 @@
+D:\DUT\Lab_DUT_Yevtaiyev\Lab_1\bin\Debug\Lab_1.exe.config
+D:\DUT\Lab_DUT_Yevtaiyev\Lab_1\bin\Debug\Lab_1.exe
+D:\DUT\Lab_DUT_Yevtaiyev\Lab_1\bin\Debug\Lab_1.pdb
+D:\DUT\Lab_DUT_Yevtaiyev\Lab_1\obj\Debug\Lab_1.csprojAssemblyReference.cache
+D:\DUT\Lab_DUT_Yevtaiyev\Lab_1\obj\Debug\Lab_1.csproj.CoreCompileInputs.cache
+D:\DUT\Lab_DUT_Yevtaiyev\Lab_1\obj\Debug\Lab_1.exe
+D:\DUT\Lab_DUT_Yevtaiyev\Lab_1\obj\Debug\Lab_1.pdb
+D:\DUT\C# DUT\Lab_DUT_Yevtaiyev\Lab_1\bin\Debug\Lab_1.exe.config
+D:\DUT\C# DUT\Lab_DUT_Yevtaiyev\Lab_1\bin\Debug\Lab_1.exe
+D:\DUT\C# DUT\Lab_DUT_Yevtaiyev\Lab_1\bin\Debug\Lab_1.pdb
+D:\DUT\C# DUT\Lab_DUT_Yevtaiyev\Lab_1\obj\Debug\Lab_1.csprojAssemblyReference.cache
+D:\DUT\C# DUT\Lab_DUT_Yevtaiyev\Lab_1\obj\Debug\Lab_1.csproj.CoreCompileInputs.cache
+D:\DUT\C# DUT\Lab_DUT_Yevtaiyev\Lab_1\obj\Debug\Lab_1.exe
+D:\DUT\C# DUT\Lab_DUT_Yevtaiyev\Lab_1\obj\Debug\Lab_1.pdb
