@@ -5,3 +5,10 @@ D:\DUT\C# DUT\Lab_DUT_Yevtaiyev\Lab_3\obj\Debug\Lab_3.csprojAssemblyReference.ca
 D:\DUT\C# DUT\Lab_DUT_Yevtaiyev\Lab_3\obj\Debug\Lab_3.csproj.CoreCompileInputs.cache
 D:\DUT\C# DUT\Lab_DUT_Yevtaiyev\Lab_3\obj\Debug\Lab_3.exe
 D:\DUT\C# DUT\Lab_DUT_Yevtaiyev\Lab_3\obj\Debug\Lab_3.pdb
+D:\Reprosit\Lab_DUT_Yevtaiyev\Lab_3\bin\Debug\Lab_3.exe.config
+D:\Reprosit\Lab_DUT_Yevtaiyev\Lab_3\bin\Debug\Lab_3.exe
+D:\Reprosit\Lab_DUT_Yevtaiyev\Lab_3\bin\Debug\Lab_3.pdb
+D:\Reprosit\Lab_DUT_Yevtaiyev\Lab_3\obj\Debug\Lab_3.csprojAssemblyReference.cache
+D:\Reprosit\Lab_DUT_Yevtaiyev\Lab_3\obj\Debug\Lab_3.csproj.CoreCompileInputs.cache
+D:\Reprosit\Lab_DUT_Yevtaiyev\Lab_3\obj\Debug\Lab_3.exe
+D:\Reprosit\Lab_DUT_Yevtaiyev\Lab_3\obj\Debug\Lab_3.pdb

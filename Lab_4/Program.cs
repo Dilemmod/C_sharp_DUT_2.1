@@ -18,20 +18,21 @@ namespace Lab_4
             Console.Write("Enter size masiv N "); int size = Convert.ToInt32(Console.ReadLine());
             double[] mas = new double[size];
             Console.Write("Enter the digit R "); double r = Convert.ToDouble(Console.ReadLine());
-            double temp = 0, max = double.MaxValue;
+            double temp = 0, m = double.MaxValue;
 
             for (int i = 0; i < mas.Length; i++) 
             {
                 Console.Write("Enter [" + (i + 1) + "] element ");
                 mas[i] = Convert.ToDouble(Console.ReadLine());
                 double a = Math.Abs(Math.Abs(mas[i]) - Math.Abs(r));
-                if (a < max)
+
+                if (a < m)
                 {
                     temp = mas[i];
-                    max = a;
+                    m = a;
                 }
             }
-            Console.WriteLine("The closest number to R: "+temp);
+            Console.WriteLine("The closest number to R: " + temp);
             Console.ReadKey();
 
 

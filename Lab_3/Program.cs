@@ -17,12 +17,10 @@ namespace Lab_3
             string str = Console.ReadLine();
             //Перевірка чи str число
             int n;
-            bool isNum = int.TryParse(str, out n);
+            bool isNum = int.TryParse(str, out n);//Одразу конвертує
 
             if (isNum)
             {
-                //Перетворення str в int
-                n = Convert.ToInt32(str);
                 //Перевірка на парність
                 if (n % 2 != 0)
                 {
