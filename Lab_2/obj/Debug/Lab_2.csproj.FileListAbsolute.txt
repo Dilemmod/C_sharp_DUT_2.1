@@ -11,3 +11,9 @@ D:\DUT\C# DUT\Lab_DUT_Yevtaiyev\Lab_2\obj\Debug\Lab_2.csprojAssemblyReference.ca
 D:\DUT\C# DUT\Lab_DUT_Yevtaiyev\Lab_2\obj\Debug\Lab_2.csproj.CoreCompileInputs.cache
 D:\DUT\C# DUT\Lab_DUT_Yevtaiyev\Lab_2\obj\Debug\Lab_2.exe
 D:\DUT\C# DUT\Lab_DUT_Yevtaiyev\Lab_2\obj\Debug\Lab_2.pdb
+D:\Reprosit\Lab_DUT_Yevtaiyev\Lab_2\bin\Debug\Lab_2.exe.config
+D:\Reprosit\Lab_DUT_Yevtaiyev\Lab_2\bin\Debug\Lab_2.exe
+D:\Reprosit\Lab_DUT_Yevtaiyev\Lab_2\bin\Debug\Lab_2.pdb
+D:\Reprosit\Lab_DUT_Yevtaiyev\Lab_2\obj\Debug\Lab_2.csprojAssemblyReference.cache
+D:\Reprosit\Lab_DUT_Yevtaiyev\Lab_2\obj\Debug\Lab_2.exe
+D:\Reprosit\Lab_DUT_Yevtaiyev\Lab_2\obj\Debug\Lab_2.pdb

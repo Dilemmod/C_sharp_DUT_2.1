@@ -9,6 +9,5 @@ D:\Reprosit\Lab_DUT_Yevtaiyev\Lab_5\bin\Debug\Lab_5.exe.config
 D:\Reprosit\Lab_DUT_Yevtaiyev\Lab_5\bin\Debug\Lab_5.exe
 D:\Reprosit\Lab_DUT_Yevtaiyev\Lab_5\bin\Debug\Lab_5.pdb
 D:\Reprosit\Lab_DUT_Yevtaiyev\Lab_5\obj\Debug\Lab_5.csprojAssemblyReference.cache
-D:\Reprosit\Lab_DUT_Yevtaiyev\Lab_5\obj\Debug\Lab_5.csproj.CoreCompileInputs.cache
 D:\Reprosit\Lab_DUT_Yevtaiyev\Lab_5\obj\Debug\Lab_5.exe
 D:\Reprosit\Lab_DUT_Yevtaiyev\Lab_5\obj\Debug\Lab_5.pdb

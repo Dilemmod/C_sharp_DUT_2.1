@@ -2,6 +2,5 @@ D:\Reprosit\Lab_DUT_Yevtaiyev\Lab_7\bin\Debug\Lab_7.exe.config
 D:\Reprosit\Lab_DUT_Yevtaiyev\Lab_7\bin\Debug\Lab_7.exe
 D:\Reprosit\Lab_DUT_Yevtaiyev\Lab_7\bin\Debug\Lab_7.pdb
 D:\Reprosit\Lab_DUT_Yevtaiyev\Lab_7\obj\Debug\Lab_7.csprojAssemblyReference.cache
-D:\Reprosit\Lab_DUT_Yevtaiyev\Lab_7\obj\Debug\Lab_7.csproj.CoreCompileInputs.cache
 D:\Reprosit\Lab_DUT_Yevtaiyev\Lab_7\obj\Debug\Lab_7.exe
 D:\Reprosit\Lab_DUT_Yevtaiyev\Lab_7\obj\Debug\Lab_7.pdb
