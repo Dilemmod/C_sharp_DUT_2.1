@@ -39,6 +39,7 @@ namespace Lab_6
             } while (exit.Key != ConsoleKey.Enter);
             Console.WriteLine();
 
+
             Console.WriteLine("The array to which was copied list = ");
             int[] copyList = oneOrZero.ToArray();
             for (int i = 0; i < copyList.Length; i++)
