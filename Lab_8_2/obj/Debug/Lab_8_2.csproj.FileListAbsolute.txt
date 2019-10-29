@@ -1,0 +1,6 @@
+D:\Reprosit\Lab_DUT_Yevtaiyev\Lab_8_2\bin\Debug\Lab_8_2.exe.config
+D:\Reprosit\Lab_DUT_Yevtaiyev\Lab_8_2\bin\Debug\Lab_8_2.exe
+D:\Reprosit\Lab_DUT_Yevtaiyev\Lab_8_2\bin\Debug\Lab_8_2.pdb
+D:\Reprosit\Lab_DUT_Yevtaiyev\Lab_8_2\obj\Debug\Lab_8_2.csprojAssemblyReference.cache
+D:\Reprosit\Lab_DUT_Yevtaiyev\Lab_8_2\obj\Debug\Lab_8_2.exe
+D:\Reprosit\Lab_DUT_Yevtaiyev\Lab_8_2\obj\Debug\Lab_8_2.pdb
