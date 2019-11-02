@@ -26,7 +26,7 @@ namespace Lab_8
             carList.Add(new Car() { Name = "Lamborghini Aventador", Color = "Red", Speed = "350", YearOfGraduation = "2011" });
             carList.Add(new Car() { Name = "LaFerrari", Color = "Red", Speed = "350", YearOfGraduation = "2013" });
             carList.Add(new Car() { Name = "Porsche taycan", Color = "White", Speed = "260", YearOfGraduation = "2015" });
-            carList.Add(new Car() { Name = "Koenigsegg Agera RS", Color = "Orange", Speed = "456", YearOfGraduation = "2015" });
+            carList.Add(new Car() { Name = "Koenigsegg Agera RS", Color = "Orange", Speed = "460", YearOfGraduation = "2015" });
             carList.Add(new Car() { Name = "Bugatti Veyron Super Sport", Color = "Orange", Speed = "410", YearOfGraduation = "2015" });
             carList.Add(new Car() { Name = "Mclaren F1", Color = "Red", Speed = "390", YearOfGraduation = "1993" });
             getMenu();
@@ -94,9 +94,8 @@ namespace Lab_8
                     case ConsoleKey.D:
                         Console.WriteLine("What method do you want to choose a car to ride");
                         Console.WriteLine("If by car number press 'N'");
-                        Console.WriteLine("If one parameter press 'O'");
-                        ConsoleKeyInfo userChoice;
-                        userChoice = Console.ReadKey(true);
+                        Console.WriteLine("If on parameters press 'O'");
+                        ConsoleKeyInfo userChoice = Console.ReadKey(true);
                         switch (userChoice.Key)
                         {
                             case ConsoleKey.N:
@@ -104,62 +103,72 @@ namespace Lab_8
                                 Console.WriteLine("You chose: \n" + carList[Convert.ToInt32(Console.ReadLine()) - 1]);
                                 break;
                             case ConsoleKey.O:
-                                List<Car> tempCarList = new List<Car>();
-                                tempCarList = carList;
+                        //COPY LIST
+                                List<Car> copyCarList = new List<Car>(carList);
+                                int j;
+                                string StrParam;
                                 int amountP = 0;
                                 do
                                 {
-                                    Console.WriteLine("\t\t\tHow many parameters do you have: ");
+                                    Console.WriteLine("\t\t\t\tHow many parameters do you have: ");
                                     amountP = Convert.ToInt32(Console.ReadLine());
                                 } while (amountP > 4);
                                 for (int i = 0; i < amountP; i++)
                                 {
-                                    Console.WriteLine("\t\t\tEnter your parameter (Name or Color or Speed or Year)");
-                                    string parameter = Console.ReadLine();
-                                    switch (parameter)
+                                    Console.WriteLine("\t\t\tPress on the first letter of the need parameter (N or C or S or Y)");
+                                    ConsoleKeyInfo parameter = Console.ReadKey(true);
+                                    switch (parameter.Key)
                                     {
-                                        case "Name":
-                                            Console.WriteLine("\t\t\t Enter name of car");
-                                            parameter = Console.ReadLine();
-                                            for (int j = 0; j < tempCarList.Count; j++)
+                                        case ConsoleKey.N:
+                                            Console.WriteLine("\t\t Enter NAME of car");
+                                            StrParam = Console.ReadLine();
+                                            j = 0;
+                                            while (j < copyCarList.Count)
                                             {
-                                                if (tempCarList[j].Name != parameter)
+                                                if (copyCarList[j].Name != StrParam)
                                                 {
-                                                    tempCarList.RemoveAt(j);
+                                                    copyCarList.RemoveAt(j);
                                                 }
+                                                else { j++; }
                                             }
                                             break;
-                                        case "Color":
-                                            Console.WriteLine("\t\t\t Enter color of car");
-                                            parameter = Console.ReadLine();
-                                            for (int j = 0; j < tempCarList.Count; j++)
+                                        case ConsoleKey.C:
+                                            Console.WriteLine("\t\t Enter COLOR of car");
+                                            StrParam = Console.ReadLine();
+                                            j = 0;
+                                            while (j < copyCarList.Count)
                                             {
-                                                if (tempCarList[j].Color != parameter)
+                                                if (copyCarList[j].Color != StrParam)
                                                 {
-                                                    tempCarList.RemoveAt(j);
+                                                    copyCarList.RemoveAt(j);
                                                 }
+                                                else { j++; }
                                             }
                                             break;
-                                        case "Speed":
-                                            Console.WriteLine("\t\t\t Enter speed of car");
-                                            parameter = Console.ReadLine();
-                                            for (int j = 0; j < tempCarList.Count; j++)
+                                        case ConsoleKey.S:
+                                            Console.WriteLine("\t\t Enter SPEED of car");
+                                            StrParam = Console.ReadLine();
+                                            j = 0;
+                                            while ( j < copyCarList.Count)
                                             {
-                                                if (tempCarList[j].Speed != parameter)
+                                                if (copyCarList[j].Speed != StrParam)
                                                 {
-                                                    tempCarList.RemoveAt(j);
+                                                    copyCarList.RemoveAt(j);
                                                 }
+                                                else { j++; }
                                             }
                                             break;
-                                        case "Year":
-                                            Console.WriteLine("\t\t\t Enter year of Graduation car");
-                                            parameter = Console.ReadLine();
-                                            for (int j = 0; j < tempCarList.Count; j++)
+                                        case ConsoleKey.Y:
+                                            Console.WriteLine("\t\t Enter YEAR of Graduation car");
+                                            StrParam = Console.ReadLine();
+                                            j = 0;
+                                            while (j < copyCarList.Count)
                                             {
-                                                if (tempCarList[j].YearOfGraduation != parameter)
+                                                if (copyCarList[j].YearOfGraduation != StrParam)
                                                 {
-                                                    tempCarList.RemoveAt(j);
+                                                    copyCarList.RemoveAt(j);
                                                 }
+                                                else { j++; }
                                             }
                                             break;
                                         default:
@@ -168,8 +177,8 @@ namespace Lab_8
                                             break;
                                     }
                                 }
-                                Console.WriteLine("\t\t\tYou chose: \n");
-                                foreach (Car t in tempCarList)
+                                Console.WriteLine("\t\t\tYou CHOISE: \n");
+                                foreach (Car t in copyCarList)
                                 {
                                     Console.WriteLine(t);
                                 }
