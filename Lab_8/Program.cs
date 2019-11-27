@@ -99,9 +99,17 @@ namespace Lab_8
                         switch (userChoice.Key)
                         {
                             case ConsoleKey.N:
-                                Console.WriteLine("\t\t\t Enter number of car: ");
-                                Console.WriteLine("You chose: \n" + carList[Convert.ToInt32(Console.ReadLine()) - 1]);
-                                break;
+                                try
+                                {
+
+                                    Console.WriteLine("\t\t\t Enter number of car: ");
+                                    Console.WriteLine("You chose: \n" + carList[Convert.ToInt32(Console.ReadLine()) - 1]);
+                                }
+                                    catch
+                        {
+                            Console.WriteLine("Parameters entered incorrectly!");
+                        }
+                        break;
                             case ConsoleKey.O:
                         //COPY LIST
                                 List<Car> copyCarList = new List<Car>(carList);
@@ -117,65 +125,73 @@ namespace Lab_8
                                 {
                                     Console.WriteLine("\t\t\tPress on the first letter of the need parameter (N or C or S or Y)");
                                     ConsoleKeyInfo parameter = Console.ReadKey(true);
-                                    switch (parameter.Key)
+                                    try
                                     {
-                                        case ConsoleKey.N:
-                                            Console.WriteLine("\t\t Enter NAME of car");
-                                            StrParam = Console.ReadLine();
-                                            j = 0;
-                                            while (j < copyCarList.Count)
-                                            {
-                                                if (copyCarList[j].Name != StrParam)
+                                        switch (parameter.Key)
+                                        {
+                                            case ConsoleKey.N:
+                                                Console.WriteLine("\t\t Enter NAME of car");
+                                                StrParam = Console.ReadLine();
+                                                j = 0;
+                                                while (j < copyCarList.Count)
                                                 {
-                                                    copyCarList.RemoveAt(j);
+                                                    if (copyCarList[j].Name != StrParam)
+                                                    {
+                                                        copyCarList.RemoveAt(j);
+                                                    }
+                                                    else { j++; }
                                                 }
-                                                else { j++; }
-                                            }
-                                            break;
-                                        case ConsoleKey.C:
-                                            Console.WriteLine("\t\t Enter COLOR of car");
-                                            StrParam = Console.ReadLine();
-                                            j = 0;
-                                            while (j < copyCarList.Count)
-                                            {
-                                                if (copyCarList[j].Color != StrParam)
+                                                break;
+                                            case ConsoleKey.C:
+                                                Console.WriteLine("\t\t Enter COLOR of car");
+                                                StrParam = Console.ReadLine();
+                                                j = 0;
+                                                while (j < copyCarList.Count)
                                                 {
-                                                    copyCarList.RemoveAt(j);
+                                                    if (copyCarList[j].Color != StrParam)
+                                                    {
+                                                        copyCarList.RemoveAt(j);
+                                                    }
+                                                    else { j++; }
                                                 }
-                                                else { j++; }
-                                            }
-                                            break;
-                                        case ConsoleKey.S:
-                                            Console.WriteLine("\t\t Enter SPEED of car");
-                                            StrParam = Console.ReadLine();
-                                            j = 0;
-                                            while ( j < copyCarList.Count)
-                                            {
-                                                if (copyCarList[j].Speed != StrParam)
+                                                break;
+                                            case ConsoleKey.S:
+                                                Console.WriteLine("\t\t Enter SPEED of car");
+                                                StrParam = Console.ReadLine();
+                                                j = 0;
+                                                while (j < copyCarList.Count)
                                                 {
-                                                    copyCarList.RemoveAt(j);
+                                                    if (copyCarList[j].Speed != StrParam)
+                                                    {
+                                                        copyCarList.RemoveAt(j);
+                                                    }
+                                                    else { j++; }
                                                 }
-                                                else { j++; }
-                                            }
-                                            break;
-                                        case ConsoleKey.Y:
-                                            Console.WriteLine("\t\t Enter YEAR of Graduation car");
-                                            StrParam = Console.ReadLine();
-                                            j = 0;
-                                            while (j < copyCarList.Count)
-                                            {
-                                                if (copyCarList[j].YearOfGraduation != StrParam)
+                                                break;
+                                            case ConsoleKey.Y:
+                                                Console.WriteLine("\t\t Enter YEAR of Graduation car");
+                                                StrParam = Console.ReadLine();
+                                                j = 0;
+                                                while (j < copyCarList.Count)
                                                 {
-                                                    copyCarList.RemoveAt(j);
+                                                    if (copyCarList[j].YearOfGraduation != StrParam)
+                                                    {
+                                                        copyCarList.RemoveAt(j);
+                                                    }
+                                                    else { j++; }
                                                 }
-                                                else { j++; }
-                                            }
-                                            break;
-                                        default:
-                                            Console.WriteLine("Parameters entered incorrectly!");
-                                            getMenu();
-                                            break;
+                                                break;
+                                            default:
+                                                Console.WriteLine("Parameters entered incorrectly!");
+                                                getMenu();
+                                                break;
+                                        }
                                     }
+                                    catch
+                                    {
+                                        Console.WriteLine("Parameters entered incorrectly!");
+                                    }
+                                
                                 }
                                 Console.WriteLine("\t\t\tYou CHOISE: \n");
                                 foreach (Car t in copyCarList)
