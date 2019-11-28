@@ -8,7 +8,7 @@ namespace Lab_9_1
 {
     class Program
     {
-        abstract class Triangle
+        abstract class Triangle :IDraw
         {
             public string color { get; set; }
             public int side1 { get; set; }
@@ -18,13 +18,31 @@ namespace Lab_9_1
             public string type { get; set; }
             public abstract double Perimeter();
             public abstract double Square();
+            public  void Draw()
+            {
+                if (color == "red" || color == "Red")
+                    Console.ForegroundColor = ConsoleColor.Red;
+                if (color == "green" || color == "Green")
+                    Console.ForegroundColor = ConsoleColor.Green;
+                if (color == "blue" || color == "Blue")
+                    Console.ForegroundColor = ConsoleColor.Blue;
+                if (color == "white" || color == "White")
+                    Console.ForegroundColor = ConsoleColor.White;
+                if (color == "magenta" || color == "Magenta")
+                    Console.ForegroundColor = ConsoleColor.Magenta;
+                if (color == "gray" || color == "Gray")
+                    Console.ForegroundColor = ConsoleColor.Gray;
+                if (color == "yellow" || color == "Yellow")
+                    Console.ForegroundColor = ConsoleColor.Yellow;
+            }
             public override string ToString()
             {
+                Draw();
                     return ("Type = "+type+" Side1 = " + side1 + "| Side2 = " + side2 + "| Angle = " + angle + "| Color = " + color + "| Name = " + this.name + "\nPerimeter = " + Perimeter() + "| Square = " + Square());
             }
             protected void RandomValues()
             {
-                string[] colors = new string[] { "Red", "Orange", "Yellow", "Green", "Blue", "Violet" };
+                string[] colors = new string[] { "Red", "White", "Yellow", "Green", "Blue", "Magenta","Grey" };
                 Random random = new Random();
                 string[] nameArray = new string[] {"d3","H1","u2","ka","s8","q0","b2","iq","ter","p"};
                 name = nameArray[random.Next(0, nameArray.Length - 1)];
@@ -34,7 +52,7 @@ namespace Lab_9_1
                 color = colors[random.Next(0, colors.Length - 1)];
             }
         }
-        class EqTriangle : Triangle 
+        class EqTriangle : Triangle
         {
             public EqTriangle()
             {
@@ -90,7 +108,6 @@ namespace Lab_9_1
             {
                 return (0.5 * side1 * ((Math.Sqrt(3) / 2) * side1));
             }
-
         }
         class IsTriangle : Triangle
         {
@@ -212,7 +229,7 @@ namespace Lab_9_1
             private void GetChoice()
             {
                 ConsoleKeyInfo userAction;
-                Console.WriteLine("If you went to add a triangle press \t'A'\nIf you went to delete a triangle pres \t'D'");
+                Console.WriteLine("\n\nIf you went to add a triangle press \t'A'\nIf you went to delete a triangle pres \t'D'");
                 userAction = Console.ReadKey(true);
                 Console.Clear();
                 switch (userAction.Key)
@@ -220,7 +237,9 @@ namespace Lab_9_1
                     case ConsoleKey.A:
                         Console.WriteLine("Enter parameters of triangle in form like this: name,side1,side2,color\n\nSide1 and side2 its must be integer.\nIf you do not want to use one of these parameters, just do not add to it, but follow the sequence! ");
                         string allParametrs = Console.ReadLine();
-                        AddTraingle(WhichType(),allParametrs);
+                        char type;
+                        WhichType(out type);
+                        AddTraingle(type,allParametrs);
                         break;
                     case ConsoleKey.D:
                         GetPicture();
@@ -228,7 +247,7 @@ namespace Lab_9_1
                         break;
                 }
             }
-            private char WhichType()
+            private void WhichType(out char type)
             {
                 ConsoleKeyInfo userAction;
                 Console.WriteLine("If you want to add a rect triangle press \t'R'\nIf you want to add a isosceles triangle press \t'I'\nIf you want to add a equilat triangle press \t'E'");
@@ -238,26 +257,46 @@ namespace Lab_9_1
                 {
                     default:
                     case ConsoleKey.R:
-                        return  'R';
+                        type =  'R';
+                        break;
                     case ConsoleKey.I:
-                        return 'I';
+                        type = 'I';
+                        break;
                     case ConsoleKey.E:
-                        return 'E';
+                        type = 'E';
+                        break;
                 }
             }
             public Picture()
             {
                 picture.Add(new EqTriangle() { name = "E1", side1 = 6, side2 = 6 });
                 picture.Add(new IsTriangle() { side1 = 31, side2 = 2, color = "Red" });
-                picture.Add(new IsTriangle() { side1 = 11, side2 = 22, color = "Orange" });
+                picture.Add(new IsTriangle() { side1 = 11, side2 = 22, color = "Blue" });
                 picture.Add(new RectTriangle() { name = "Re3", side1 = 19 });
                 picture.Add(new RectTriangle() { name = "Peq", side1 = 10 });
+                GetPicture();
                 GetChoice();
                 GetPicture();
             }
             public Picture(int length)
             {
+                int i = 0;
+                char type;
+                while (i < length)
+                {
+                    WhichType(out type);
+                    if (type == 'R')
+                        picture.Add(new RectTriangle());
+                    else if(type == 'I')
+                        picture.Add(new IsTriangle());
+                    else if(type == 'E')
+                        picture.Add(new EqTriangle());
+                    i ++;
+                }
                 GetPicture();
+                GetChoice();
+                GetPicture();
+
             }
             public void GetPicture()
             {
@@ -267,6 +306,7 @@ namespace Lab_9_1
                 {
                     Console.WriteLine("Index: " + (i++)+"\t");
                     Console.WriteLine(uc);
+                    Console.ResetColor();
                 }
             }
             public void AddTraingle(char type,string allParameters)
@@ -358,7 +398,9 @@ namespace Lab_9_1
                             Console.WriteLine("\n\nTo delete a triangle by name press \t'N'by type \t'T' by square\t'S' \nEnter name of triangle \n"+parameter);
                         break;
                     case ConsoleKey.T:
-                        switch (WhichType())
+                        char type;
+                        WhichType(out type);
+                        switch (type)
                         {
                             case 'R':
                             default:
@@ -373,7 +415,7 @@ namespace Lab_9_1
                         }
                         break;
                     case ConsoleKey.S:
-                        Console.WriteLine("Enter a square. triangles with a square larger than yours will be removed ");
+                        Console.WriteLine("\n\nEnter a square. triangles with a square larger than yours will be removed ");
                         parameter = Console.ReadLine();
                         j = 0;
                         while (j < picture.Count)
@@ -386,14 +428,29 @@ namespace Lab_9_1
                         }
                         Console.Clear();
                         GetPicture();
+                        Console.WriteLine("\n\nEnter a square. triangles with a square larger than yours will be removed " + parameter);
                         break;
                 }
                 GetChoice();
             }
         }
+        class Painter
+        {
+        }
         static void Main(string[] args)
         {
-            new Picture();
+            ConsoleKeyInfo userAction;
+            Console.WriteLine("if you want to add a certain number of triangles press \t'C'");
+            userAction = Console.ReadKey(true);
+            if (userAction.Key == ConsoleKey.C)
+            {
+                Console.WriteLine("Enter рow many triangles do you want to add?");
+                new Picture(Convert.ToInt32(Console.ReadLine()));
+            }
+            else
+            {
+                new Picture();
+            }
             Console.ReadKey();
         }
     }
