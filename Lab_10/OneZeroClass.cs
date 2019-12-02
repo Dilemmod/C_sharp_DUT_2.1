@@ -4,17 +4,19 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace Lab_6
+namespace Lab_10
 {
-    class OneZeroClass
+    class OZClass
     {
-        public List<int> ListOneZero()
+        List<int> oneOrZero = new List<int>();
+        public int Count;
+        public void EnterData()
         {
-            List<int> oneOrZero = new List<int>();
             ConsoleKeyInfo exit;
             int zeros = 0, units = 0;
             Console.WriteLine("Enter 0 or 1 : ");
             Console.WriteLine("Enter ENTER key for exit ");
+            Console.Write(" ");
             do
             {
                 exit = Console.ReadKey(true);
@@ -32,31 +34,25 @@ namespace Lab_6
                         break;
                 }
             } while (exit.Key != ConsoleKey.Enter);
+            Count = oneOrZero.Count;
             Console.WriteLine();
             Console.WriteLine("Number of units = " + units);
-            Console.WriteLine("Number of zeros = " + zeros); 
-            return oneOrZero;
+            Console.WriteLine("Number of zeros = " + zeros);
         }
-    }
-    class Program
-    {
-        static void Main(string[] args)
+        public void OutputList()
         {
-            // Lab 6
-            // Варіант 6.
-            // Створити ліст інтових змінних, який може вміщати тільки 1 і 0,
-            // заповнити його з клавіатури. Порахувати кількість 1 і 0.
-            // Скопіювати отриманий ліст в масив.
-            OneZeroClass oneZeroClass= new OneZeroClass();
-            List<int> oneZero = oneZeroClass.ListOneZero();
-            Console.WriteLine("The array to which was copied list = ");
-            int[] copyList = oneZero.ToArray();
-            for (int i = 0; i < copyList.Length; i++)
+            for(int i = 0; i < Count; i++)
             {
-                Console.Write(copyList[i] +" ");
+                Console.Write(oneOrZero[i] +" ");
             }
-
-            Console.ReadKey();
+        }
+        public void OutputNumberEven(int index)
+        {
+            Console.Write(oneOrZero[index]+" - ");
+        }
+        public void OutputNumberOdd(int index)
+        {
+            Console.Write(" - "+ oneOrZero[index]);
         }
     }
 }
