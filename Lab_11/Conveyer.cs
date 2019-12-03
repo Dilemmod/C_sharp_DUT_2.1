@@ -8,36 +8,36 @@ namespace Lab_11
 {
     class Conveyer
     {
-        Product prod = new Product();
-        public void TekeSizes()
+        public Conveyer() { }
+        public void TekeSizes(Product prod)
         {
             prod.tekenSizes = true;
         }
-        public void CutOff()
+        public void CutOff(Product prod)
         {
             prod.cutOff = true;
         }
-        public void Sharpen()
+        public void Sharpen(Product prod)
         {
             prod.sharpened = true;
         }
-        public void CutThrean()
+        public void CutThrean(Product prod)
         {
             prod.cutThreat = true;
         }
-        public void Drillen()
+        public void Drillen(Product prod)
         {
             prod.drilled = true;
         }
-        public void Painten()
+        public void Painten(Product prod)
         {
             prod.painted = true;
         }
-        public void Protest()
+        public void Protest(Product prod)
         {
             prod.tested = true;
         }
-        public void Packen()
+        public void Packen(Product prod)
         {
             prod.painted = true;
         }

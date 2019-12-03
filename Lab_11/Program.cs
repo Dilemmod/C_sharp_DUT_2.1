@@ -6,14 +6,26 @@ using System.Threading.Tasks;
 
 namespace Lab_11
 {
-    public delegate void DelegateConveyer();
     class Program
     {
+        public delegate void DelegateConveyer(Product prod);
         static void Main(string[] args)
         {
             // 1.
+            Product prod = new Product();
+            prod.OutputInfo();
             Conveyer exConv = new Conveyer();
-            DelegateConveyer conveyer = exConv.TekeSizes();
+            DelegateConveyer conveyer = exConv.TekeSizes;
+            conveyer += exConv.CutOff;
+            conveyer += exConv.Sharpen;
+            conveyer += exConv.CutThrean;
+            conveyer += exConv.Drillen;
+            conveyer += exConv.Painten;
+            conveyer += exConv.Protest;
+            conveyer += exConv.Packen;
+            conveyer(prod);
+            prod.OutputInfo();
+            Console.ReadKey();
         }
     }
 }
