@@ -13,6 +13,12 @@ namespace Lab_10
             //6. Створити розширяючий метод для масиву цілих чисел, який спочатку виводить елементи з парними індексами а потім з непарними.
             OZClass ozExemp = new OZClass();
             ozExemp.EnterData();
+            Console.Write("User array of one zero list ");
+            Console.Write(" ");
+            ozExemp.OutputList();
+            Console.WriteLine();
+            Console.Write("Elements with an even index ");
+            Console.Write(" ");
             ozExemp.EvenOdd();
             Console.ReadKey();
         }
