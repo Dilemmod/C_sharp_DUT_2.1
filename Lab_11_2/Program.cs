@@ -26,14 +26,8 @@ namespace Lab_11_2
 
             List<Student> sortListS = listStud.FindStudent();
 
-            Console.WriteLine();
-            int i = 0;
-            foreach (Student uc in sortListS)
-            {
-                Console.WriteLine("Number: " + (++i));
-                Console.WriteLine(uc);
-                Console.WriteLine();
-            }
+            sortListS.GetInfo();
+           
             Console.ReadLine();
         }
     }

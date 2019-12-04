@@ -15,7 +15,6 @@ namespace Lab_11_2
         {
             return "Name: " + firstName + "\nLast name: " + lastName + "\nAge: " + age;
         }
-
         public static bool AgeCheck(Student st)
         {
             return (st.age >= 18 ? true : false);

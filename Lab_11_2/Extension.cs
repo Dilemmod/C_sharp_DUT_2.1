@@ -27,5 +27,16 @@ namespace Lab_11_2
 
             return sortListSt;
         }
+        public static void GetInfo(this List<Student> sortListS)
+        {
+            int i = 0;
+            foreach (Student uc in sortListS)
+            {
+                Console.WriteLine("Number: " + (++i));
+                Console.WriteLine(uc);
+                Console.WriteLine();
+            }
+        }
+
     }
 }
