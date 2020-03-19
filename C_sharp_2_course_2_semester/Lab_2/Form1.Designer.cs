@@ -1,6 +1,6 @@
-﻿namespace L3_Task_4
+﻿namespace Lab_2
 {
-    partial class TimerForm
+    partial class Form1
     {
         /// <summary>
         /// Обязательная переменная конструктора.
@@ -59,7 +59,7 @@
             this.btn_Cancel.UseVisualStyleBackColor = true;
             this.btn_Cancel.Click += new System.EventHandler(this.btn_Cancel_Click);
             // 
-            // TimerForm
+            // Form
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;

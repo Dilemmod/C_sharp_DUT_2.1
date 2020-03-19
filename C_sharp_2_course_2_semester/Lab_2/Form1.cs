@@ -8,16 +8,16 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 
-namespace L3_Task_4
+namespace Lab_2
 {
-    public partial class TimerForm : Form
+    public partial class Form1 : Form
     {
         int w = 75;
         int h = 41;
         int counter = 0;
         Timer timer = new Timer();
         int i = 0;
-        public TimerForm()
+        public Form1()
         {
             InitializeComponent();
             Text = " ";
@@ -41,8 +41,8 @@ namespace L3_Task_4
             Random rand = new Random();
             int x = this.btn_Ok.Location.X;
             int y = this.btn_Ok.Location.Y;
-            int delta = rand.Next(50,100);
-            x = (x < this.Size.Width/2 ? x -= delta : x += delta);
+            int delta = rand.Next(50, 100);
+            x = (x < this.Size.Width / 2 ? x -= delta : x += delta);
             y = (y < this.Size.Height / 2 ? y -= delta : y += delta);
 
             this.btn_Ok.Location = new System.Drawing.Point(x, y);
@@ -67,7 +67,7 @@ namespace L3_Task_4
         }
         private void TimerForm_MouseMove(object sender, MouseEventArgs e)
         {
-            if(btn_Ok.Size.Width<1|| btn_Ok.Size.Height <1)
+            if (btn_Ok.Size.Width < 1 || btn_Ok.Size.Height < 1)
                 this.Text = "Кнопка “Ок” не може бути натиснута";
             float foreSize = btn_Ok.Font.Size;
             int bX = btn_Ok.Location.X;
@@ -75,34 +75,34 @@ namespace L3_Task_4
             int delta = 30;
             int speed = 2;
             bool b = false;
-         
+
             bool XLimit = e.X > bX - delta && e.X < bX;
             bool YLimit = e.Y > bY - delta && e.Y < bY;
-            bool XLimitPlusSize = e.X > bX - delta+100&& e.X < bX + 100;
-            bool YLimitPlusSize = e.Y > bY - delta+50 && e.Y < bY + 50;
-            bool XRev = e.X > bX && e.X < bX -delta +100;
-            bool YRev = e.Y > bY && e.Y < bY -delta +50;
-            if (XLimit&&YLimit)
+            bool XLimitPlusSize = e.X > bX - delta + 100 && e.X < bX + 100;
+            bool YLimitPlusSize = e.Y > bY - delta + 50 && e.Y < bY + 50;
+            bool XRev = e.X > bX && e.X < bX - delta + 100;
+            bool YRev = e.Y > bY && e.Y < bY - delta + 50;
+            if (XLimit && YLimit)
             {
                 this.btn_Ok.Location = new System.Drawing.Point(bX + speed, bY + speed);
-                b = true;  counter++;
+                b = true; counter++;
             }
-            else if(XLimitPlusSize&&YLimitPlusSize)
+            else if (XLimitPlusSize && YLimitPlusSize)
             {
                 this.btn_Ok.Location = new System.Drawing.Point(bX - speed, bY - speed);
                 b = true; counter++;
             }
-            else if(XLimit&&YLimitPlusSize)
+            else if (XLimit && YLimitPlusSize)
             {
                 this.btn_Ok.Location = new System.Drawing.Point(bX + speed, bY - speed);
                 b = true; counter++;
             }
-            else if(XLimitPlusSize&& YLimit)
+            else if (XLimitPlusSize && YLimit)
             {
                 this.btn_Ok.Location = new System.Drawing.Point(bX - speed, bY + speed);
                 b = true; counter++;
             }
-            else if(XRev&& YLimit)
+            else if (XRev && YLimit)
             {
                 this.btn_Ok.Location = new System.Drawing.Point(bX, bY + speed);
                 b = true; counter++;
@@ -114,7 +114,7 @@ namespace L3_Task_4
             }
             else if (XLimitPlusSize && YRev)
             {
-                this.btn_Ok.Location = new System.Drawing.Point(bX - speed, bY );
+                this.btn_Ok.Location = new System.Drawing.Point(bX - speed, bY);
                 b = true; counter++;
             }
             else if (XLimit && YRev)
@@ -137,9 +137,9 @@ namespace L3_Task_4
                 x += delta;
             this.btn_Ok.Location = new System.Drawing.Point(x, y);
             //Зменшння розміру кнопки
-            if (b&&counter%10==0)
+            if (b && counter % 10 == 0)
             {
-                if(btn_Ok.Size.Width > 10 || btn_Ok.Size.Height > 10)
+                if (btn_Ok.Size.Width > 10 || btn_Ok.Size.Height > 10)
                     this.btn_Ok.Font = new Font(btn_Ok.Font.FontFamily, foreSize -= (float)0.7);
                 w -= 2;
                 this.btn_Ok.Size = new System.Drawing.Size(w, --h);

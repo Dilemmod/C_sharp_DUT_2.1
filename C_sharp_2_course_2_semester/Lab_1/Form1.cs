@@ -14,22 +14,22 @@ namespace Lab_1
         public Form1()
         {
             InitializeComponent();
-            this.Size = new Size(240,300);
+            this.Size = new Size(240, 300);
             int x = -10;
             int y = 50;
             textBox1.BackColor = SystemColors.ControlDarkDark;
             textBox1.Font = new Font("Microsoft Sans Serif", 12f, FontStyle.Bold, GraphicsUnit.Point, (byte)204);
             textBox1.ForeColor = Color.GhostWhite;
-            textBox1.Location = new Point(x+40, y-40);
+            textBox1.Location = new Point(x + 40, y - 40);
             textBox1.ReadOnly = true;
             textBox1.Size = new Size(160, 30);
             textBox1.TextAlign = HorizontalAlignment.Right;
             this.Controls.Add(textBox1);
 
             int num = 9;
-            string[] oper = new string[5] {"Nul", "/", "*", "-", "+" };
-            string[] other = new string[4] { "NuL", "=", ",","0" };
-            string[] delete = new string[4] { "<-","C","+-","V" };
+            string[] oper = new string[5] { "Nul", "/", "*", "-", "+" };
+            string[] other = new string[4] { "NuL", "=", ",", "0" };
+            string[] delete = new string[4] { "<-", "C", "+-", "V" };
             //Вертикаль
             for (int i = 0; i < 5; i++)
             {
@@ -61,7 +61,7 @@ namespace Lab_1
                         b.Text = (num--).ToString();
                     }
                     this.Controls.Add(b);
-                  
+
                 }
             }
         }
@@ -69,7 +69,7 @@ namespace Lab_1
 
         private void Button_MouseClick(object sender, MouseEventArgs e)
         {
-            Button b ;
+            Button b;
             b = (sender as Button);
 
             if (textBox1.Text != "")
@@ -97,7 +97,7 @@ namespace Lab_1
                         textBox1.Text = "";
                         break;
                     case "+":
-                        example += textBox1.Text+" ";
+                        example += textBox1.Text + " ";
                         operations += "+ ";
                         textBox1.Text = "";
                         break;
@@ -122,7 +122,8 @@ namespace Lab_1
                         textBox1.Text += b.Text;
                         break;
                 }
-            }else
+            }
+            else
             {
                 switch (b.Text)
                 {
@@ -152,7 +153,7 @@ namespace Lab_1
             string[] exampleArrey = example.Split(' ');
             string[] operationsArrey = operations.Split(' ');
             double result = 0;
-            for (int i = 0; i < exampleArrey.Length-1; i++)
+            for (int i = 0; i < exampleArrey.Length - 1; i++)
             {
                 if (i == 0)
                     result = Convert.ToDouble(exampleArrey[i]);
@@ -160,23 +161,18 @@ namespace Lab_1
                 {
                     case "+":
                         result = (result + Convert.ToDouble(exampleArrey[i + 1]));
-                       break;
+                        break;
                     case "-":
                         result = (result - Convert.ToDouble(exampleArrey[i + 1]));
-                       break;
+                        break;
                     case "/":
                         result = (result / Convert.ToDouble(exampleArrey[i + 1]));
-                       break;
+                        break;
                     case "*":
-                        result = (result* Convert.ToDouble(exampleArrey[i + 1]));
-                       break;
+                        result = (result * Convert.ToDouble(exampleArrey[i + 1]));
+                        break;
 
                 }
-                listBox1.Items.Add(exampleArrey[i]);
-            }
-            for (int i = 0; i < operationsArrey.Length; i++)
-            {
-                listBox2.Items.Add(operationsArrey[i]);
             }
             textBox1.Text = result.ToString();
             example = "";
