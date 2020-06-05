@@ -18,15 +18,15 @@ namespace Crossword
         public List<string> answers = new List<string>();
         public List<string> questions = new List<string>();
         public string configuration;
-        public void CreaterXMLFile(string field,string[] questions,string[] answers)
+        public void CreaterXMLFile(string field, List<string> questions, List<string> answers)
         {
             XDocument xdoc = new XDocument();
             XElement fieldSettings = new XElement("FieldSettings");
             fieldSettings.Add(new XElement("Field", new XAttribute("Configuration", field)));
-            if (questions.Length== answers.Length)
-                for (int i = 0; i < questions.Length; i++)
+            if (questions.Count == answers.Count)
+                for (int i = 0; i < questions.Count; i++)
                     fieldSettings.Add(new XElement("Description", new XAttribute("Question", questions[i]), new XAttribute("Answer", answers[i])));
-
+            //D:\GitHub\C_sharp_DUT_2.1\C_sharp_2_course_2_semester\Crossword\Crossword\bin\Debug
             xdoc.Add(fieldSettings);
             xdoc.Save("Crosswords.xml");
         }
@@ -45,7 +45,7 @@ namespace Crossword
         {
             InitializeComponent();
             ReaderXMLFile();
-            //CreaterXMLFile(configuration, questions, answers);
+            CreaterXMLFile(configuration, questions, answers);
             FormSettings(configuration, questions, answers);
             
         }
