@@ -26,30 +26,35 @@ namespace Crossword
             if (questions.Count == answers.Count)
                 for (int i = 0; i < questions.Count; i++)
                     fieldSettings.Add(new XElement("Description", new XAttribute("Question", questions[i]), new XAttribute("Answer", answers[i])));
-            //D:\GitHub\C_sharp_DUT_2.1\C_sharp_2_course_2_semester\Crossword\Crossword\bin\Debug
             xdoc.Add(fieldSettings);
             xdoc.Save("Crosswords.xml");
         }
-        public void ReaderXMLFile()
+        public void ReaderXMLFile(int numberCrosswords)
         {
-            XDocument document = XDocument.Load("Crosswords.xml");
-            foreach (var Element in document.Element("FieldSettings").Elements("Field"))
-                configuration = Element.Attribute("Configuration").Value;
-            foreach (var Element in document.Element("FieldSettings").Elements("Description"))
+            try
             {
-                questions.Add(Element.Attribute("Question").Value);
-                answers.Add(Element.Attribute("Answer").Value);
+                XDocument document = XDocument.Load("Crosswords.xml");
+                foreach (var Element in document.Element("Crossword_" + numberCrosswords).Elements("Field"))
+                    configuration = Element.Attribute("Configuration").Value;
+                foreach (var Element in document.Element("Crossword_" + numberCrosswords).Elements("Description"))
+                {
+                    questions.Add(Element.Attribute("Question").Value);
+                    answers.Add(Element.Attribute("Answer").Value);
+                }
+            }
+            catch (Exception e)
+            {
+                MessageBox.Show("Exeption :" + e.Message);
             }
         }
         public Form1()
         {
             InitializeComponent();
-            ReaderXMLFile();
-            CreaterXMLFile(configuration, questions, answers);
+            ReaderXMLFile(1);
             FormSettings(configuration, questions, answers);
             
         }
-        public void FormSettings(string configuration,List<string> tips, List<string> amswer)
+        public void FormSettings(string configuration, List<string> tips, List<string> amswer)
         {
             string[] fields = configuration.Split(',');
             string[] parameters = fields[0].Split(' ');
@@ -58,24 +63,26 @@ namespace Crossword
             panel1.Width = Convert.ToInt32(parameters[0]);
             panel1.Height = Convert.ToInt32(parameters[1]);
             this.Width = Convert.ToInt32(parameters[0]) + 40;
-            this.Height = Convert.ToInt32(parameters[1]) + 120+(tips.Count*20);
+            this.Height = Convert.ToInt32(parameters[1]) + 120 + (tips.Count * 20);
 
-            //Вивід підказок
-            for (int i = 0; i < tips.Count; i++)
+            if (tips.Count != 0)
             {
-                Label label = new Label();
-                label.AutoSize = true;
-                label.Font = new Font("Arial", 11.25F, FontStyle.Bold, GraphicsUnit.Point, ((byte)(204)));
-                label.ForeColor = Color.Black;
-                label.Location = new Point(10, Convert.ToInt32(parameters[1])+20+(i*20));
-                if (this.Width < tips[i].Length*8)
-                    this.Width = this.Width + ( tips[i].Length*8 - this.Width);
-                label.Text = tips[i];
-                this.Controls.Add(label);
+                //Вивід підказок
+                for (int i = 0; i < tips.Count; i++)
+                {
+                    Label label = new Label();
+                    label.AutoSize = true;
+                    label.Font = new Font("Arial", 11.25F, FontStyle.Bold, GraphicsUnit.Point, ((byte)(204)));
+                    label.ForeColor = Color.Black;
+                    label.Location = new Point(10, Convert.ToInt32(parameters[1]) + 20 + (i * 20));
+                    if (this.Width < tips[i].Length * 8)
+                        this.Width = this.Width + (tips[i].Length * 8 - this.Width);
+                    label.Text = tips[i];
+                    this.Controls.Add(label);
+                }
             }
-            //Кнопка перевірки
-            this.button1.Location = new Point(this.Width/3, this.Height - 90);
-
+                //Кнопка перевірки
+            this.button1.Location = new Point(this.Width / 3, this.Height - 90);
             for (int i = 1; i < fields.Length; i++)
             {
                 int j = 0;
@@ -110,11 +117,11 @@ namespace Crossword
                     if (item.Location.X == textBox.Location.X && item.Location.Y == textBox.Location.Y)
                     {
                         textBox.AccessibleName = item.Name;
-                        //textBox.Name +=";"+ item.Name;
+                        textBox.TabIndex = 1000;
                     }
                 }
                 textBox.TextAlign = HorizontalAlignment.Center;
-                textBox.MouseHover += (s, e) => { label1.Text = textBox.Name; };
+
                 this.panel1.Controls.Add(textBox);
                 if (o == 'H'|| o == 'h')
                     x += 35;
@@ -126,55 +133,57 @@ namespace Crossword
 
         private void button1_Click(object sender, EventArgs e)
         {
-            listTextBox.Clear();
-            for (int i = 1; i < panel1.Controls.Count; i++)
+            if (answers.Count != 0)
             {
-                TextBox textBox = panel1.Controls[i] as TextBox;
-                listTextBox.Add(textBox);
-                
-            }
-            //Добавлення тексту для полів які збігаються
-            for (int i = 0; i < listTextBox.Count; i++)
-            {
-                if (listTextBox[i].AccessibleName != null)
+                listTextBox.Clear();
+                for (int i = 1; i < panel1.Controls.Count; i++)
                 {
-                    string text="";
-                    for (int j = 0; j < listTextBox.Count; j++)
-                    {
-                        if (listTextBox[j].Name == listTextBox[i].AccessibleName)
-                        {
-                            text = listTextBox[j].Text;
-                        }
-                    }
-                    listTextBox[i].Text = text;
-                }
-            }
+                    TextBox textBox = panel1.Controls[i] as TextBox;
+                    listTextBox.Add(textBox);
 
-            //Перевірка чи правильна відповідь
-            int mistakes = 0;
-            for (int i = 0; i < answers.Count; i++)
-            {
-                for (int j = 0; j < answers[i].Length; j++)
+                }
+                //Добавлення тексту для полів які збігаються
+                for (int i = 0; i < listTextBox.Count; i++)
                 {
-                    foreach (var item in listTextBox)
+                    if (listTextBox[i].AccessibleName != null)
                     {
-                        string[] par=item.Name.Split(',');
-                        if (par[0] == i.ToString() && par[1] == j.ToString())
+                        string text = "";
+                        for (int j = 0; j < listTextBox.Count; j++)
                         {
-                            if (item.Text.ToString() != answers[i][j].ToString())
+                            if (listTextBox[j].Name == listTextBox[i].AccessibleName)
                             {
-                                mistakes++;
+                                text = listTextBox[j].Text;
+                            }
+                        }
+                        listTextBox[i].Text = text;
+                    }
+                }
+
+                //Перевірка чи правильна відповідь
+                int mistakes = 0;
+                for (int i = 0; i < answers.Count; i++)
+                {
+                    for (int j = 0; j < answers[i].Length; j++)
+                    {
+                        foreach (var item in listTextBox)
+                        {
+                            string[] par = item.Name.Split(',');
+                            if (par[0] == i.ToString() && par[1] == j.ToString())
+                            {
+                                if (item.Text.ToString() != answers[i][j].ToString()&& item.Text.ToString().ToUpper() != answers[i][j].ToString()&& item.Text.ToString().ToLower() != answers[i][j].ToString())
+                                {
+                                    mistakes++;
+                                }
                             }
                         }
                     }
                 }
+                if (mistakes == 0)
+                {
+                    MessageBox.Show("Все вірно");
+                }else
+                    MessageBox.Show("Кількість не правильних літер: " + mistakes.ToString());
             }
-            if (mistakes == 0)
-            {
-                MessageBox.Show("Все вірно");
-            }
-            MessageBox.Show("Ви зробили "+mistakes.ToString()+" помилок");
-            
         }
     }
 }

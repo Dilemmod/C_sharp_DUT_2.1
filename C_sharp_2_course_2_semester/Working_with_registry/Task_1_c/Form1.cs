@@ -29,16 +29,20 @@ namespace Task_1_c
 
         private bool ReadSettings()
         {
-            FileStream file = File.Open(@"Settings.txt", FileMode.Open);
-            BinaryReader reader = new BinaryReader(file);
-            this.Location = new Point(reader.ReadInt32(), reader.ReadInt32());
-            this.Height = reader.ReadInt32();
-            this.Width = reader.ReadInt32();
-            this.checkBox1.Checked = reader.ReadBoolean();
-            this.checkBox2.Checked = reader.ReadBoolean();
-            this.textBox1.Text = reader.ReadString();
-            reader.Close();
-            return true;
+            if (File.Exists(@"Settings.txt"))
+            {
+                FileStream file = File.Open(@"Settings.txt", FileMode.Open);
+                BinaryReader reader = new BinaryReader(file);
+                this.Location = new Point(reader.ReadInt32(), reader.ReadInt32());
+                this.Height = reader.ReadInt32();
+                this.Width = reader.ReadInt32();
+                this.checkBox1.Checked = reader.ReadBoolean();
+                this.checkBox2.Checked = reader.ReadBoolean();
+                this.textBox1.Text = reader.ReadString();
+                reader.Close();
+                return true;
+            }
+            return false;
         }
         void SaveSettings()
         {

@@ -29,11 +29,13 @@ namespace Task_1_b
 
         private bool ReadSettings()
         {
-            StreamReader reader = File.OpenText("Settings.txt");
-            if (reader == null) return false;
-            string input;
+            if (File.Exists(@"Settings.txt"))
+            {
+                StreamReader reader = File.OpenText("Settings.txt");
+                if (reader == null) return false;
+                string input;
 
-            string[] values = new string[] {
+                string[] values = new string[] {
                 Location.X.ToString(),
                 Location.Y.ToString(),
                 Height.ToString(),
@@ -41,17 +43,19 @@ namespace Task_1_b
                 checkBox1.Checked.ToString(),
                 checkBox2.Checked.ToString(),
                 textBox1.Text.ToString()
-            };
-            int x = Convert.ToInt32(reader.ReadLine().Split(':')[1]);
-            int y = Convert.ToInt32(reader.ReadLine().Split(':')[1]);
-            this.Location = new Point(x,y);
-            this.Height = Convert.ToInt32(reader.ReadLine().Split(':')[1]);
-            this.Width = Convert.ToInt32(reader.ReadLine().Split(':')[1]);
-            this.checkBox1.Checked = Convert.ToBoolean(reader.ReadLine().Split(':')[1]);
-            this.checkBox2.Checked = Convert.ToBoolean(reader.ReadLine().Split(':')[1]);
-            this.textBox1.Text = reader.ReadLine().Split(':')[1];
-            reader.Close();
-            return true;
+                };
+                int x = Convert.ToInt32(reader.ReadLine().Split(':')[1]);
+                int y = Convert.ToInt32(reader.ReadLine().Split(':')[1]);
+                this.Location = new Point(x, y);
+                this.Height = Convert.ToInt32(reader.ReadLine().Split(':')[1]);
+                this.Width = Convert.ToInt32(reader.ReadLine().Split(':')[1]);
+                this.checkBox1.Checked = Convert.ToBoolean(reader.ReadLine().Split(':')[1]);
+                this.checkBox2.Checked = Convert.ToBoolean(reader.ReadLine().Split(':')[1]);
+                this.textBox1.Text = reader.ReadLine().Split(':')[1];
+                reader.Close();
+                return true;
+            }
+            return false;
         }
 
         void SaveSettings()
